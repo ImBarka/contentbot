@@ -1,0 +1,38 @@
+# ─── Secrets — NEVER commit these ────────────────────────────
+.env
+*.key
+client_secret*.json
+token.json
+!client_secrets.example.json
+
+# ─── Generated output ────────────────────────────────────────
+output/
+backgrounds/cache/
+logs/*
+!logs/.gitkeep
+
+# ─── Media assets (large + third-party licensed) ─────────────
+# Music tracks are downloaded per-user from the YouTube Audio
+# Library / Pixabay. They are not ours to redistribute.
+music/*
+!music/README.md
+backgrounds/*.mp4
+
+# ─── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# ─── IDE ─────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ─── OS ──────────────────────────────────────────────────────
+Thumbs.db
+.DS_Store

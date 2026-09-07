@@ -1,0 +1,32 @@
+Copyright (c) 2026 ImBarka. All Rights Reserved.
+
+This software and its accompanying documentation are the proprietary and
+confidential property of the copyright holder.
+
+No permission is granted to any person to use, copy, modify, merge, publish,
+distribute, sublicense, or sell copies of this software, in whole or in part,
+without the prior written consent of the copyright holder.
+
+Unauthorized copying of this repository, via any medium, is strictly prohibited.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+THIRD-PARTY NOTICE
+
+This project orchestrates third-party services and assets that carry their own
+terms. Nothing in this license grants any right to them:
+
+  - Google Gemini API .............. Google APIs Terms of Service
+  - Microsoft Edge TTS ............. Microsoft terms (via the `edge-tts` client)
+  - Pexels stock footage ........... Pexels License
+  - YouTube Data API v3 ............ YouTube API Services Terms of Service
+  - Background music tracks ........ Retain the license of their original source
+                                     (YouTube Audio Library, Pixabay, etc.) and
+                                     are NOT distributed with this repository.
