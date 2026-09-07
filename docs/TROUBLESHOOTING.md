@@ -37,6 +37,7 @@ something below applies.
 | `No Pexels results for '...'` | [Weak keywords](#no-pexels-results-for-x) |
 | `No background videos available` | [Nothing to render](#no-background-videos-available) |
 | `FFmpeg error:` | [FFmpeg](#ffmpeg) |
+| No `🎵 Music:` line, video is silent underneath | [No music](#no-music-in-the-video-at-all) |
 | `invalid_grant` | [Expired token](#invalid_grant--token-has-been-expired-or-revoked) |
 | `quotaExceeded` | [YouTube quota](#quotaexceeded) |
 | Run hangs until killed | [Task hangs forever](#task-hangs-until-the-time-limit) |
@@ -323,6 +324,37 @@ culprit.
 Check `-stream_loop -1` is still applied to every video input. Pexels clips are
 frequently shorter than their allotted segment; without the loop, the segment
 ends early.
+
+### No music in the video at all
+
+The pipeline treats missing music as normal, not as an error — an empty
+`music/` folder produces a voice-only video and the run still exits `0`. So
+silence is easy to miss.
+
+Check the log. A run that found a track prints:
+
+```
+   🎵 Music: Amber - VYEN.mp3 @ 10%
+```
+
+No such line means `pick_music_track()` returned `None`. Two causes:
+
+**Folder is empty or missing.** It is gitignored, so a fresh clone has no
+tracks — each machine needs its own copy. See
+[`music/README.md`](../music/README.md).
+
+**Extension not recognised.** Only `.mp3`, `.m4a`, and `.wav` are globbed.
+Files like `.flac`, `.ogg`, or `.aac` are silently skipped, as is anything in a
+subfolder — the glob is not recursive.
+
+```powershell
+Get-ChildItem music\* -Include *.mp3,*.m4a,*.wav | Measure-Object |
+    Select-Object Count
+```
+
+A count of `0` while the folder visibly has files means the extensions are
+wrong. Convert them, or add the extension to the tuple in
+`pick_music_track()` in [`main.py`](../main.py).
 
 ### Music drowns the voice
 
